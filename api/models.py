@@ -7,7 +7,7 @@ import uuid
 
 
 def upload_avatar_path(instance, filename):
-    # ext will be contained extension(拡張子) like JPEG, PNG ...etc
+    # 'ext' will be contained 'extension(拡張子)' like JPEG, PNG ...etc
     ext = filename.split('.')[-1]
     # It will create like "(instance.user_profile.id).jpeg" and it will be stored to avatars's folder
     return '/'.join(['avatars', str(instance.user_profile.id) + str(".") + str(ext)])
