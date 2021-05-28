@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+#JWTに有効期限をつけるため、時間を記述できるモジュールをimport
 from datetime import timedelta
 import os
 
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'api.apps.ApiConfig',
+    #djoser Djangoのー>認証関係を補完してくれるthirtd-party
     'djoser',
 
 ]
@@ -53,9 +55,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
 ]
-
+#Backend へのアクセスするためのURLを設定
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:3000"
 ]
@@ -80,6 +81,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'task_app_api.wsgi.application'
 
+# To control the permissions showing view with User Authentication.
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
@@ -89,8 +91,10 @@ REST_FRAMEWORK = {
     ],
 }
 
+# 事前にインストールしておいたJWTの設定のカスタマイズ
 SIMPLE_JWT = {
     'AUTH_HEADER_TYPES': ('JWT',),
+    # JWTの有効期限を設定
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30),
 }
 
@@ -126,7 +130,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
+# Setting Time Zone as Japan
 TIME_ZONE = 'Asia/Tokyo'
 
 USE_I18N = True
@@ -139,6 +143,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 

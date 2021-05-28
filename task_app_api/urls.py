@@ -22,8 +22,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # to refer "urls.py" in api for task_app_api's "urls.py"
     path('api/', include('api.urls')),
-    # To set a pass for return JWT TOKEN
+    # To set a pass for return JWT TOKEN, also will implement page transition to JWT Authentication page.
     path('authen/', include('djoser.urls.jwt')),
 ]
-# If when type media at the end of the path, it will refer content of media folder
+# If when type media at the end of point as the path, it will refer content of media folder
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
