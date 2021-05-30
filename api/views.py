@@ -9,7 +9,7 @@ from . import custompermissions
 
 # Create your views here.
 
-# REST API Endpoint
+# REST API Endpoint Setting
 # api/create    POST     *create newuser(username + password)
 #    /users     GET      *get user's list
 #    /loginuser GET      *get login user's info
