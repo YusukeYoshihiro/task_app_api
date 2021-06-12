@@ -8,4 +8,4 @@ class OwnerPermission(permissions.BasePermission):
         # on the other hand, 'DELETE', 'UPDATE' method in NOT 'SAFE_METHODS' because these are gonna 'modify Data'
         if request.method in permissions.SAFE_METHODS:
             return True
-        return obj.onwer.id == request.user.id
+        return obj.owner.id == request.user.id

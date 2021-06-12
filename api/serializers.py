@@ -23,13 +23,13 @@ class ProfileSerializer(serializers.ModelSerializer):
         extra_kwargs = {'user_profile': {'read_only': True}}
 
 
-class CategorySerializer(serializers.ModelSerializerer):
+class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
         fields =['id','item']
 
 
-class TaskSerializer(serializers.ModelSerializerer):
+class TaskSerializer(serializers.ModelSerializer):
     category_item = serializers.ReadOnlyField(source='category.item', read_only=True)
     owner_username = serializers.ReadOnlyField(source='owner.username', read_only=True)
     responsible_username = serializers.ReadOnlyField(source='responsible.username', read_only=True)

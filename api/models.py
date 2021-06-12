@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator
 # uuid = " universal unique id " to create 128bit unique id
 import uuid
+# Create your models here.
 
 
 def upload_avatar_path(instance, filename):
@@ -52,4 +53,4 @@ class Task(models.Model):
     def __str__(self):
         return self.task
 
-# Create your models here.
+
