@@ -34,7 +34,7 @@ class ListUserView(generics.ListAPIView):
 
 
 # Retrieve will detect and return specific object
-class LoginUserView(generics.RetrieveAPIView):
+class LoginUserView(generics.RetrieveUpdateAPIView):
     serializer_class = UserSerializer
 
     # ログインしているuser_objectを返して欲しい時は、get_object(self)を用いる
@@ -93,7 +93,7 @@ class TaskViewSet(viewsets.ModelViewSet):
     permission_classes = (permissions.IsAuthenticated, custompermissions.OwnerPermission,)
 
     def perform_create(self, serializer):
-        # ownerに'self.request.user'="オーナーの情報"が動的に格納される。)
+        # ownerに'self.request.user'="オーナーの情報"が自動的に格納される。)
         serializer.save(owner=self.request.user)
 
     def partial_update(self, request, *args, **kwargs):
