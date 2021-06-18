@@ -26,7 +26,7 @@ class ProfileSerializer(serializers.ModelSerializer):
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
-        fields =['id','item']
+        fields = ['id', 'item']
 
 
 class TaskSerializer(serializers.ModelSerializer):
